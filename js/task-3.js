@@ -1,47 +1,11 @@
 'use strict';
 
-// Напиши функцию findBestEmployee(employees),
-// которая принимает объект сотрудников и возвращает имя самого
-// продуктивного(который выполнил больше всех задач).Сотрудники и кол - во выполненых задач
-// содержатся как свойства объекта в формате "имя": "кол-во задач".
+// Получить массив имен пользователей по полу (поле gender).
 
-const findBestEmployee = function(employees) {
-  let max = 0;
-  let name;
+import users from "./users.js";
 
-  for (const i in employees) {
-    if (max < employees[i]) {
-      max = employees[i];
-      name = i;
-    }
-  }
-   return name;
+const getUsersWithGender = (users, gender) => {
+  return users.filter(users => gender === users.gender);
 };
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(
-  findBestEmployee({
-    ann: 29,
-    david: 35,
-    helen: 1,
-    lorence: 99,
-  }),
-); // lorence
 
-console.log(
-  findBestEmployee({
-    poly: 12,
-    mango: 17,
-    ajax: 4,
-  }),
-); // mango
-
-console.log(
-  findBestEmployee({
-    lux: 147,
-    david: 21,
-    kiwi: 19,
-    chelsy: 38,
-  }),
-); // lux
+console.table(getUsersWithGender(users, "male")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]

@@ -1,15 +1,11 @@
 'use strict';
 
-// Напиши функцию countProps(obj), считающую кол-во свойств в объекте. Функция возвращает число - количество свойств.
+// Получить массив объектов пользователей по цвету глаз (поле eyeColor).
 
-const countProps = function(obj) {
-  return Object.entries(obj).length;
+import users from "./users.js";
+
+const getUsersWithEyeColor = (users, color) => {
+  return users.filter(users => color === users.eyeColor);
 };
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(countProps({})); // 0
 
-console.log(countProps({ name: 'Mango', age: 2 })); // 2
-
-console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 })); // 3
+console.table(getUsersWithEyeColor(users, "blue")); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]

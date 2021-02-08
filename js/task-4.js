@@ -1,34 +1,11 @@
 'use strict';
 
-// Напиши функцию countTotalSalary(employees) принимающую объект зарплат.
-// Функция считает общую сумму запрплаты работников и возращает ее.
-// Каждое поле объекта, передаваемого в функцию, имеет вид "имя": "зарплата".
+// Получить массив только неактивных пользователей (поле isActive).
 
-const countTotalSalary = function(employees) {
-  let total = 0;
-  for (const key in employees) {
-    total = total + employees[key];
-  }
-  return total;
+import users from "./users.js";
+
+const getInactiveUsers = users => {
+  return users.filter(user => !user.isActive);
 };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(countTotalSalary({})); // 0
-
-console.log(
-  countTotalSalary({
-    mango: 100,
-    poly: 150,
-    alfred: 80,
-  }),
-); // 330
-
-console.log(
-  countTotalSalary({
-    kiwi: 200,
-    lux: 50,
-    chelsy: 150,
-  }),
-); // 400
+console.table(getInactiveUsers(users)); // [объект Moore Hensley, объект Ross Vazquez, объект Blackburn Dotson]
