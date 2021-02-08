@@ -1,30 +1,14 @@
 'use strict';
-// Напиши функцию calculateTotalPrice(allProdcuts, productName),
-// которая получает массив объектов и имя продукта(значение свойства name).
-// Возвращает общую стоимость продукта(цена * количество).
-// Вызовы функции для проверки работоспособности твоей реализации.
 
-const products = [
-  { name: "Радар", price: 1300, quantity: 4 },
-  { name: "Сканер", price: 2700, quantity: 3 },
-  { name: "Дроид", price: 400, quantity: 7 },
-  { name: "Захват", price: 1200, quantity: 2 }
-];
+// Получить массив пользователей попадающих в возрастную категорию от min до max лет (поле age).
 
-const calculateTotalPrice = function(allProdcuts, productName) {
-  let total;
+import users from "./users.js";
 
-  for (const product of allProdcuts) {
-    if (product.name.includes(productName)) {
-      total = product.quantity * product.price;
-    }
-  }
-  return `${productName} --- ${total}`;
+const getUsersWithAge = (users, min, max) => {
+  return users.filter(user => user.age >= min && user.age <= max);
 };
 
-/*
- * Вызовы функции для проверки работоспособности твоей реализации.
- */
-console.log(calculateTotalPrice(products, "Радар")); // 5200
+console.table(getUsersWithAge(users, 20, 30)); // [объект Ross Vazquez, объект Elma Head, объект Carey Barr]
 
-console.log(calculateTotalPrice(products, "Дроид")); // 2800
+console.table(getUsersWithAge(users, 30, 40));
+// [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
