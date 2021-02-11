@@ -5,7 +5,8 @@
 import users from "./users.js";
 
 const getUsersWithGender = (users, gender) => {
-  return users.filter(users => gender === users.gender);
+  const userGender = users.filter(users => users.gender === gender);
+  return userGender.map(users => users.name);
 };
 
 console.table(getUsersWithGender(users, "male")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
